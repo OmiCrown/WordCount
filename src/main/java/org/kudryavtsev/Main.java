@@ -30,6 +30,8 @@ public class Main {
         String fileName = args[0];
         int count  = Integer.valueOf(args[1]);
         String wordsFile = "";
+        WordsMap wordsMap = new WordsMap();
+
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 
@@ -45,7 +47,7 @@ public class Main {
         }
 
         List<String> wordsList = new ArrayList<>(Arrays.asList(wordsFile.split(" ")));
-        SortedSet<Map.Entry<String, Integer>> entries = entriesSortedByValues(getWordsMap(wordsList));
+        SortedSet<Map.Entry<String, Integer>> entries = entriesSortedByValues(wordsMap.getWordsMap(wordsList));
 
         Object[] array = entries.toArray();
 
@@ -55,18 +57,4 @@ public class Main {
 
     }
 
-    private static Map<String, Integer> getWordsMap(List<String> wordsList) {
-        Map<String, Integer> map = new TreeMap<>();
-
-        for (String word : wordsList) {
-            if (!map.containsKey(word)) {
-                map.put(word, 1);
-            }
-            else {
-                int amount = map.get(word);
-                map.put(word, amount + 1);
-            }
-        }
-        return map;
-    }
 }
