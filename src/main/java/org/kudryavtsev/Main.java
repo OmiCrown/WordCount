@@ -32,16 +32,14 @@ public class Main {
         String wordsFile = "";
         WordsMap wordsMap = new WordsMap();
 
-
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 
             String line;
             while ((line = br.readLine()) != null) {
                 wordsFile = wordsFile + line.toLowerCase() + " ";
             }
-            wordsFile = wordsFile.replaceAll("[.,]", " ");
-            wordsFile = wordsFile.replaceAll("( )+", " ");
-
+            wordsFile = wordsFile.replaceAll("[.,]( )+", " ");
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
