@@ -14,7 +14,7 @@ public class Main {
                     if (e1.getKey().equals(e2.getKey())) {
                         return res;
                     } else {
-                        return res != 0 ? res : 1;
+                        return res != 0 ? res : -1;
                     }
                 }
         );
