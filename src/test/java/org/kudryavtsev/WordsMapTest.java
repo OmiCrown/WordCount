@@ -21,12 +21,13 @@ public class WordsMapTest {
 
     @Test
     public void shouldWordsMapReturn2lines() throws Exception {
-
         List<String> wordsList = new ArrayList<>(Arrays.asList("mary", "john", "mary"));
         Map map = new TreeMap();
         map.put("john", 1);
         map.put("mary", 2);
         assertEquals(wordsMap.getWordsMap(wordsList), map);
     }
+
+
 
 }
